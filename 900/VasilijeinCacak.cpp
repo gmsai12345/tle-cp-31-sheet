@@ -16,6 +16,7 @@
 #define mxe(v)  *max_element(v.begin(),v.end())     // find max element in vector
 #define mne(v)  *min_element(v.begin(),v.end())     // find min element in vector
 #define unq(v)  v.resize(distance(v.begin(), unique(v.begin(), v.end())));
+bool findSubarraySum(const vector<int>& v, int k) { unordered_set<int> prefixSums; int sum = 0; for (int num : v) if ((sum += num) == k || prefixSums.count(sum - k)) return true, prefixSums.insert(sum), false; return false; }
 // make sure to sort before applying unique // else only consecutive duplicates would be removed 
 #define bin(x,y)  bitset<y>(x) 
 using namespace std;

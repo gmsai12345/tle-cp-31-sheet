@@ -7,7 +7,7 @@
 #define vb vector<bool>
 #define vvb vector<vb >
 #define fr(i,n) for(int i=0; i<(n); i++)
-#define rep(i,a,n) for(int i=(a); i<=(n); i++)
+#define rep(i,a,n) for(int i=(a); i<(n); i++)
 #define nl cout<<"\n"
 #define dbg(var) cout<<#var<<"="<<var<<" "
 #define all(v) v.begin(),v.end()
@@ -24,7 +24,32 @@ void modadd(int &a , int b) {a=((a%MOD)+(b%MOD))%MOD;}
 void modsub(int &a , int b) {a=((a%MOD)-(b%MOD)+MOD)%MOD;}
 void modmul(int &a , int b) {a=((a%MOD)*(b%MOD))%MOD;}
 void solve(){
+   int n,k;
+   cin >> n >>k;
+   vi v(n);
+   fr(i,n)
+   {
+    cin >> v[i];
+   }
    
+   srt(v);
+   int c=1,maxi=1;
+   rep(i,1,n)
+   {
+ //   cout << v[i]<< " ";
+    if(v[i]-v[i-1]<=k)
+    {
+        ++c;
+    }
+    else
+    {
+      
+        c=1;
+    }  
+    maxi = max(maxi,c);
+   }
+  // cout<<endl;
+  cout << n-maxi<<endl;
     
 }
 
