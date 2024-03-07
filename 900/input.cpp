@@ -51,13 +51,18 @@ void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
 
 void solve(){
-   int n;
-   cin >> n;
-   _print(n);
+   
 }
 
 int32_t main()
 {
+    #ifndef ONLINE_JUDGE
+
+	freopen("input.txt", "r", stdin);
+
+	freopen("output.txt", "w", stdout);
+
+#endif // ONLINE_JUDGE
  ios_base::sync_with_stdio(false);
  cin.tie(NULL);
 
