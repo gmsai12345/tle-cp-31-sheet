@@ -1,5 +1,5 @@
 /* Sai Dhakshan Y(RajniKanth) Author*/
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 #define int long long
 #define uint unsigned long long
 #define vi vector<int>
@@ -25,7 +25,9 @@ void modadd(int &a , int b) {a=((a%MOD)+(b%MOD))%MOD;}
 void modsub(int &a , int b) {a=((a%MOD)-(b%MOD)+MOD)%MOD;}
 void modmul(int &a , int b) {a=((a%MOD)*(b%MOD))%MOD;}
 void solve(){
-   
+   int a;
+   cin >> a;
+   cout <<a <<endl;
     
 }
 
