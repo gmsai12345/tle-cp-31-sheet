@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"c:\\Users\\einst\\Documents\\tle-cp-31-sheet\\166DIV2\\A.cpp","tests":[{"id":1717080228158,"input":"5\n4\n12ac\n5\n123wa\n9\nallllmost\n5\nac123\n6\n011679","output":"YES\nNO\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\einst\\Documents\\tle-cp-31-sheet\\166DIV2\\A.cpp","group":"local","local":true}

@@ -100,11 +100,37 @@ void readv(vector<int> &v, int n){ for(int i=0; i<n; i++){ int x; cin>>x; v.push
 void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector<int> row; for(int j=0; j<m; j++){ int x; cin>>x; row.push_back(x); } v.push_back(row); } }
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
 
+bool check(const std::string& s) {
+    //Basically, it has to be a substring that has at least two non-intersection occurrences in the string. Thus, if the string has any substring that has length at least two that appears at least twice in the string, we can copy it, and the answer will be "YES".
+    map<string,int>map;
+    for (size_t i = 0; i < s.length() - 1; ++i) {
+        if(map.find(s.substr(i, 2))==map.end())
+        {
+              map[s.substr(i, 2)]++;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void solve(){
    int n;
    cin >> n;
-   _print(n);
+   string s;
+   cin >>s;
+   if(check(s))
+   {
+    cout << "YES" <<endl;
+   }
+   else
+   {
+    cout << "NO"<<endl;
+   }
 }
+
 
 int32_t main()
 {

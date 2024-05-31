@@ -100,23 +100,32 @@ void readv(vector<int> &v, int n){ for(int i=0; i<n; i++){ int x; cin>>x; v.push
 void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector<int> row; for(int j=0; j<m; j++){ int x; cin>>x; row.push_back(x); } v.push_back(row); } }
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
 
-void solve(){
-   int n;
-   cin >> n;
-   _print(n);
-}
 
 int32_t main()
 {
- ios_base::sync_with_stdio(false);
- cin.tie(NULL);
+    int t;
+    std::cin >> t; // Read number of test cases
+    while (t--) {
+        int n;
+        std::cin >> n; // Read the size of the array
+        std::vector<int> a(n);
+        for (int i = 0; i < n; ++i) {
+            std::cin >> a[i]; // Read the elements of the array
+        }
 
-    int T = 1;
-    cin >> T;
-    while (T--)
-    {
-        solve();
-    }
+        int x = a[0];
+        std::sort(a.begin() + 1, a.end()); // Sort elements from index 1 to n-1
+
+        for (int i = 1; i < n; ++i) {
+            if (a[i] > x) {
+                x += (a[i] - x + 1) / 2;
+            }
+        }
+
+        cout << x << endl; // Print the result for this test case
+  
+}
+
     return 0;
 }
 

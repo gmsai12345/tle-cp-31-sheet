@@ -50,6 +50,7 @@
 #include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
+#include <cctype> 
 using namespace std;
 // #include<ext/pb_ds/assoc_container.hpp>
 // #include<ext/pb_ds/tree_policy.hpp>
@@ -99,11 +100,70 @@ void modmul(int &a , int b) {a=((a%MOD)*(b%MOD))%MOD;}
 void readv(vector<int> &v, int n){ for(int i=0; i<n; i++){ int x; cin>>x; v.push_back(x); } }
 void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector<int> row; for(int j=0; j<m; j++){ int x; cin>>x; row.push_back(x); } v.push_back(row); } }
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
+bool isAlphanumeric(string str) {
+    return std::all_of(str.begin(), str.end(), [](unsigned char c) {
+        return std::isalnum(c);
+    });
+}
+bool checkend(string str) {
+    for (int i = 0; i < str.length() - 1; ++i) {
+        if (isalpha(str[i]) && isdigit(str[i + 1])) {
+            return false;
+        }
+    }
+    return true;
+}
+bool checkd(string str) {
+    char lastDigit = '0' - 1; // Initialize with a character smaller than '0'
+    for (char ch : str) {
+        if (isdigit(ch)) {
+            if (ch < lastDigit) {
+                return false;
+            }
+            lastDigit = ch;
+        }
+    }
+    return true;
+}
+bool checkl(string str) {
+    char lastLetter = 'a' - 1; // Initialize with a character smaller than 'a'
+    for (char ch : str) {
+        if (isalpha(ch)) {
+            if (ch < lastLetter) {
+                return false;
+            }
+            lastLetter = ch;
+        }
+    }
+    return true;
+}
 
+bool check(string s,int n)
+{
+    if(isAlphanumeric(s)&&checkend(s)&&checkl(s)&&checkd(s))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    return false;
+}
 void solve(){
    int n;
    cin >> n;
-   _print(n);
+   string s;
+   cin >>s;
+   if(check(s,n))
+   {
+    cout << "YES"<<endl;
+   }
+   else
+   {
+    cout << "NO"<<endl;
+   }
+
 }
 
 int32_t main()

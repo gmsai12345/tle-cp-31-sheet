@@ -100,10 +100,46 @@ void readv(vector<int> &v, int n){ for(int i=0; i<n; i++){ int x; cin>>x; v.push
 void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector<int> row; for(int j=0; j<m; j++){ int x; cin>>x; row.push_back(x); } v.push_back(row); } }
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
 
+
 void solve(){
+    // given a string 
+ /*
+    try to understand the property of the question rather than trying to solve the question from testcases
+  In a diverse string, there are at most 10
+ distinct characters: '0', '1', …
+, '9'. Therefore, each of these characters can appear at most 10
+ times in a diverse string.
+
+With all this in mind, the maximum possible length of a diverse string is 102=100
+. To solve this problem, we only need to check whether each substring of length l≤100
+ is diverse.
+ */
    int n;
-   cin >> n;
-   _print(n);
+  cin>>n;
+  string s;
+  cin>>s;
+  int ans=0;
+  for(int i=0;i<n;i++)
+  {
+    int cntdist=0;
+    vector<int>cnt(11,0);
+    for(int j=i;j>=max(i-100,0LL);j--)
+    {
+        if(cnt[s[j]-'0']==0)
+            cntdist++;
+        cnt[s[j]-'0']++;
+        int flag=1;
+        for(int k=0;k<11;k++)
+            if(cnt[k]>cntdist)
+            {
+                flag=0;
+                break;
+            }
+        // cout<<j<<" "<<i<<" "<<flag<<endl;
+        ans+=flag;
+    }
+  }
+  cout<<ans<<endl;
 }
 
 int32_t main()

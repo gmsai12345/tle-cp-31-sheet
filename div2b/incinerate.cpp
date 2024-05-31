@@ -101,9 +101,22 @@ void readm(vector<vector<int>> &v, int n, int m){ for(int i=0; i<n; i++){ vector
 void printm(vector<vector<int>> &v){ for(int i=0; i<v.size(); i++){ for(int j=0; j<v[i].size(); j++){ cout << v[i][j]<<" ";}cout <<endl; } }
 
 void solve(){
-   int n;
-   cin >> n;
-   _print(n);
+   int n,k;
+   cin >> n >> k;
+   vector<pair<int,int>>v;
+   for(int i=0;i<n;i++)
+   {
+    cin >> v[i].first;
+   }
+    for(int i=0;i<n;i++)
+   {
+    cin >> v[i].second;
+   }
+   while(k--)
+   {
+    
+   }
+   
 }
 
 int32_t main()

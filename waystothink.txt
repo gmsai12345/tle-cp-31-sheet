@@ -1,0 +1,1 @@
+--> try to understand the property of the question rather than trying to solve the question from testcases
